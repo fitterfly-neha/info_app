@@ -1,26 +1,2 @@
-<h1>Edit Article.</h1>
-
-<% if @article.errors.any? %>
-    <h3>Articles are not being saved, please have a look at following instructions.</h3>
-    <ul>
-        <%@article.errors.full_messages do |msg|%>
-            <li><%= msg%></li>
-        <%end%>
-    </ul>
-<%end%>
-
-<%= form_with(model: @article, local: true) do |fm|%>
-    <p>
-        <%= fm.label :title%><br/>
-        <%= fm.text_field :title%>
-        <br/><br/>
-        <%= fm.label :description%><br/>
-        <%= fm.text_area :description%>
-    </p>
-    <br/>
-    <p>
-        <%= fm.submit%>
-    </p>
-<%end%>
-
+<%=render 'form'%>
 <%= link_to 'Cancel & Return to Articles Listing Page.', articles_path%>

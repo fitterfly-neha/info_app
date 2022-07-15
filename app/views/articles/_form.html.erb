@@ -1,5 +1,4 @@
-<%#<%=render 'form'%>
-<h1>Create a New Article.</h1>
+<h1>Edit Article.</h1>
 
 <% if @article.errors.any? %>
     <h3>Articles are not being saved, please have a look at following instructions.</h3>
@@ -10,7 +9,7 @@
     </ul>
 <%end%>
 
-<%= form_with scope: :article, url: articles_path, local: true do |fm|%>
+<%= form_with(model: @article, local: true) do |fm|%>
     <p>
         <%= fm.label :title%><br/>
         <%= fm.text_field :title%>
@@ -23,6 +22,3 @@
         <%= fm.submit%>
     </p>
 <%end%>
-<p>
-    <%= link_to 'Return to Articles Listing Page.', articles_path%>
-</p>
